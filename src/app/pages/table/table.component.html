@@ -1,0 +1,13 @@
+<app-search></app-search>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Имя пользователя</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td scope="col">{{user.login}}</td>
+        </tr>
+    </tbody>
+</table>
