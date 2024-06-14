@@ -1,9 +1,0 @@
-<app-search></app-search>
-
-<div class="list-group"
-     *ngIf="users && users.length">
-    <div class="list-group-item"
-         *ngFor="let user of users">
-        <a [routerLink]="['/detail', user.login]">{{user.login}}</a>
-    </div>
-</div>
