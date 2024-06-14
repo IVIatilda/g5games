@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { GithubAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +23,7 @@ export class AuthService {
   async loginWithEmail(email: string) {
     return new Promise((resolve, reject) => {
       const actionCodeSettings = {
-        url: 'http://localhost:4200/blocks',
+        url: `${environment.url}/blocks`,
         handleCodeInApp: true,
       };
       this.afAuth
@@ -39,13 +40,14 @@ export class AuthService {
         if (!email) {
           return;
         }
-
         this.afAuth
           .signInWithEmailLink(email)
-          .then((result) => {
-            console.log('signInWithEmailLink', result);
+          .then(() => {
             localStorage.removeItem('emailForSignIn');
-            localStorage.setItem('user', JSON.stringify({ email }));
+            localStorage.setItem(
+              'user',
+              JSON.stringify({ email, login: email })
+            );
             this.router.navigate(['/blocks']);
           })
           .catch((error) => console.log(error));
@@ -68,8 +70,6 @@ export class AuthService {
           })
         );
         this.router.navigate(['/blocks']);
-        console.log(user, user.photoURL);
-
         return user;
       })
       .catch((error) => error);

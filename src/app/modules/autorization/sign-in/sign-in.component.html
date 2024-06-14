@@ -2,14 +2,16 @@
        <div class="col-3">
               <h4 class="mb-3 text-center">Вход по электронной почте</h4>
               <form class="d-grid gap-2 mb-5"
-                    (onsubmit)="loginWithEmail()">
+                    (submit)="loginWithEmail()">
                      <input type="text"
                             name="email"
                             placeholder="Email"
                             [class]="['form-control', invalidInput]"
+                            (input)="clearErrors()"
                             [(ngModel)]="email" />
-                     <div *ngIf="formStatus.status === formStatuses.Empty"
-                          class="invalid-feedback">Введите почту
+                     <div *ngIf="invalidInput"
+                          class="invalid-feedback">
+                            {{formStatus.message}}
                      </div>
                      <button type="submit"
                              class="btn btn-primary"

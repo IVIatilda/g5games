@@ -1,5 +1,6 @@
 export const environment = {
     production: true,
+    url: 'http://localhost:4200',
     firebase: {
       apiKey: 'AIzaSyBjd-LMisoGt0x8qYukYJRKrruIejNqC8U',
       authDomain: 'g5games-c70ae.firebaseapp.com',

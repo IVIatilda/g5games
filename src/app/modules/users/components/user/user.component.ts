@@ -16,9 +16,7 @@ export class UserComponent {
   ngOnInit() {
     const userId = this.route.snapshot.paramMap.get('id');
     if (!userId) return;
-    console.log(userId);
     this.client.getUser(userId).subscribe((data: User) => {
-      console.log('User: ', data);
       this.isLoading = false;
       this.user = data;
     });

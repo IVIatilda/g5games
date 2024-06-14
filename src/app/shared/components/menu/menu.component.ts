@@ -16,7 +16,5 @@ export class MenuComponent {
 
   constructor(public route: ActivatedRoute, public authService: AuthService) {
     this.user = this.authService.currentUser;
-    console.log(this.user);
-    
   }
 }
