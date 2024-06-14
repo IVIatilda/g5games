@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/api/models';
-import { GetAccountsService } from '../../services/get-accounts.service';
+import { GetAccountsService } from 'src/app/shared/services/get-accounts.service';
 
 @Injectable()
 export abstract class AbstractUsersComponent implements OnInit, OnDestroy {

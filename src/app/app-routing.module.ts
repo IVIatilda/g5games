@@ -1,13 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlocksComponent } from './pages/blocks/blocks.component';
-import { TableComponent } from './pages/table/table.component';
-import { UserComponent } from './pages/user/user.component';
+import { BlocksComponent } from './modules/users/components/blocks/blocks.component';
+import { TableComponent } from './modules/users/components/table/table.component';
+import { UserComponent } from './modules/users/components/user/user.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { SignInComponent } from './modules/autorization/sign-in/sign-in.component';
 
 const routes: Routes = [
-  { path: 'blocks', component: BlocksComponent, title: 'Блоки' },
-  { path: 'table', component: TableComponent, title: 'Таблица' },
-  { path: 'detail/:id', component: UserComponent },
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  {
+    path: 'sign-in',
+    component: SignInComponent,
+    title: 'Авторизация',
+  },
+  {
+    path: 'blocks',
+    component: BlocksComponent,
+    title: 'Блоки',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'table',
+    component: TableComponent,
+    title: 'Таблица',
+    canActivate: [AuthGuard],
+  },
+  { path: 'detail/:id', component: UserComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

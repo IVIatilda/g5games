@@ -11,10 +11,7 @@ const declarationsForExport = [MenuComponent, SearchComponent];
 
 @NgModule({
   exports: [...reExports, ...declarationsForExport],
-  declarations: [
-    ...declarationsForExport,
-    SearchComponent,
-  ],
+  declarations: [...declarationsForExport],
   imports: [...reExports, CommonModule, RouterModule, FormsModule],
 })
 export class SharedModule {}

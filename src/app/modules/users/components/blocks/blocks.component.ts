@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractUsersComponent } from 'src/app/shared/components/abstract-users/abstract-users.component';
+import { AbstractUsersComponent } from 'src/app/modules/users/abstract-users.component';
 
 @Component({
   selector: 'app-blocks',

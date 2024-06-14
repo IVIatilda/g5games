@@ -1,10 +1,11 @@
 <form class="my-3 d-flex"
       (onsubmit)="search()">
-    <input type="text"
-           name="searchInput"
-           class="form-control rounded-end-0"
-           [(ngModel)]="searchQuery" />
-    <button type="submit"
-            class="btn btn-primary rounded-start-0"
-            (click)="search()">Искать</button>
+       <input type="text"
+              name="searchInput"
+              placeholder="Введите поисковый запрос"
+              class="form-control rounded-end-0"
+              [(ngModel)]="searchQuery" />
+       <button type="submit"
+               class="btn btn-primary rounded-start-0"
+               (click)="search()">Искать</button>
 </form>

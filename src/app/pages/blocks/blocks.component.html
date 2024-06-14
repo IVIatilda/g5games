@@ -1,9 +1,0 @@
-<app-search></app-search>
-<div *ngIf="!users.length">
-    Ничего не найдено
-</div>
-<div class="list-group">
-    <a class="list-group-item"
-       [routerLink]="['/detail', user.login]"
-       *ngFor="let user of users">{{user.login}}</a>
-</div>

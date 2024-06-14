@@ -7,9 +7,8 @@ import { User } from 'src/app/api/models';
   providedIn: 'root',
 })
 export class GetAccountsService {
-  private usersSubject = new BehaviorSubject<any[]>([]);
-  users$: Observable<any[]> = this.usersSubject.asObservable();
-  lastQueryResult$ = new BehaviorSubject<User[]>([]);
+  private usersSubject = new BehaviorSubject<User[]>([]);
+  users$: Observable<User[]> = this.usersSubject.asObservable();
 
   constructor(private client: ClientService) {}
 

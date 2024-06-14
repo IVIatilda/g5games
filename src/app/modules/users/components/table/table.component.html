@@ -1,5 +1,7 @@
 <app-search></app-search>
-<table class="table">
+
+<table class="table"
+       *ngIf="users && users.length">
     <thead>
         <tr>
             <th scope="col">Имя пользователя</th>

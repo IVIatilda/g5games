@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,11 +12,11 @@ export class MenuComponent {
     { title: 'Блоки', url: 'blocks' },
     { title: 'Таблица', url: 'table' },
   ];
-  constructor(public route: ActivatedRoute) {
-    console.log(route);
-  }
+  user: any = null;
 
-  identify(index: any, item: any) {
-    return item.name;
+  constructor(public route: ActivatedRoute, public authService: AuthService) {
+    this.user = this.authService.currentUser;
+    console.log(this.user);
+    
   }
 }

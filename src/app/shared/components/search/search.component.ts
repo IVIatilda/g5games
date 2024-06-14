@@ -12,8 +12,6 @@ export class SearchComponent {
   constructor(private accountsService: GetAccountsService) {}
 
   search(): void {
-    console.log(this.searchQuery);
-    
     if (this.searchQuery.trim()) {
       this.accountsService.searchUsers(this.searchQuery.trim());
     }
