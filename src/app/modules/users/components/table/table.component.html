@@ -4,14 +4,14 @@
        *ngIf="users && users.length">
     <thead>
         <tr>
-            <th scope="col">
-                <a [routerLink]="['/detail', user.login]">{{user.login}}</a>
-            </th>
+            <th scope="col">Имя пользователя</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let user of users">
-            <td scope="col">{{user.login}}</td>
+            <td scope="col">
+                <a [routerLink]="['/detail', user.login]">{{user.login}}</a>
+            </td>
         </tr>
     </tbody>
 </table>
