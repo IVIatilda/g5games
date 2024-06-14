@@ -4,7 +4,9 @@
        *ngIf="users && users.length">
     <thead>
         <tr>
-            <th scope="col">Имя пользователя</th>
+            <th scope="col">
+                <a [routerLink]="['/detail', user.login]">{{user.login}}</a>
+            </th>
         </tr>
     </thead>
     <tbody>
